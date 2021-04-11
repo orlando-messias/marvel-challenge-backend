@@ -7,6 +7,15 @@ import { authenticate } from '../services/authenticate';
 
 export default class UserController {
 
+  // list all users 
+  async getAll(req: Request, res: Response) {
+    const usersRepository = getRepository(User);
+
+    const users = await usersRepository.find();
+
+    return res.status(200).json(users);
+  };
+
   // user login
   async login(req: Request, res: Response) {
     const { email, password } = req.body;
