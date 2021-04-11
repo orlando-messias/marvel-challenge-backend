@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import { getRepository } from 'typeorm';
 
 import User from '../models/User';
+import { authenticate } from '../services/authenticate';
 
 export default class UserController {
 
@@ -21,9 +22,12 @@ export default class UserController {
       return res.status(401).json({ message: 'Incorrect username or password' });
     }
 
-    return res.status(200).json(user);
+    // extracts email and password from user and creates object credentials
+    const { id, name, created_at, updated_at, ...credentials } = user;
+    const token = authenticate(credentials);
+
+    return res.status(200).json({ id, name, email, token });
+
   };
-
-
 
 };
