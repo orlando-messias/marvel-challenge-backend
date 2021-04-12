@@ -18,6 +18,15 @@ export default class FavoriteComic {
   @Column()
   comicId: string;
 
+  @Column()
+	name: string;
+	
+	@Column()
+	thumbPath: string;
+	
+	@Column()
+	thumbExt: string;
+
   // optionally not shown in queries
   @CreateDateColumn({ select: false })
   created_at: Date;

@@ -17,6 +17,15 @@ export default class FavoriteCharacter {
 
 	@Column()
 	characterId: string;
+	
+	@Column()
+	name: string;
+	
+	@Column()
+	thumbPath: string;
+	
+	@Column()
+	thumbExt: string;
 
 	// optionally not shown in queries
 	@CreateDateColumn({ select: false })

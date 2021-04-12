@@ -24,7 +24,7 @@ export default class FavoriteController {
 
   // set favorite or not favorite to a character by user
   async changeFavoriteCharacterByUserId(req: Request, res: Response) {
-    const { userId, characterId } = req.body;
+    const { userId, characterId, name, thumbPath, thumbExt } = req.body;
 
     try {
       const favoriteCharacterRepo = getRepository(FavoriteCharacter);
@@ -32,7 +32,7 @@ export default class FavoriteController {
         where: { userId, characterId }
       });
       if (!favorite) {
-        await favoriteCharacterRepo.save({ userId, characterId });
+        await favoriteCharacterRepo.save({ userId, characterId, name, thumbPath, thumbExt });
         return res.status(201).json({ action: 'inserted' });
       }
 
@@ -47,7 +47,7 @@ export default class FavoriteController {
 
   // set favorite or not favorite to a comic by user
   async changeFavoriteComicByUserId(req: Request, res: Response) {
-    const { userId, comicId } = req.body;
+    const { userId, comicId, name, thumbPath, thumbExt } = req.body;
 
     try {
       const favoriteComicRepo = getRepository(FavoriteComic);
@@ -55,7 +55,7 @@ export default class FavoriteController {
         where: { userId, comicId }
       });
       if (!favorite) {
-        await favoriteComicRepo.save({ userId, comicId });
+        await favoriteComicRepo.save({ userId, comicId, name, thumbPath, thumbExt });
         return res.status(201).json({ action: 'inserted' });
       }
 
