@@ -39,7 +39,7 @@ export default class UserController {
         return res.status(401).json({ message: 'Incorrect username or password' });
       }
 
-      // extracts email and password from user and creates the object credentials
+      // extracts password and email from user and creates the object credentials
       const { id, name, created_at, updated_at, ...credentials } = user;
       const token = authenticate(credentials);
 
