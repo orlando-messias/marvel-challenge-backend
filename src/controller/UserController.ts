@@ -8,11 +8,15 @@ import { authenticate } from '../services/authenticate';
 export default class UserController {
 
   // list all users 
-  async getAll(_req: Request, res: Response) {
+  async getUserById(req: Request, res: Response) {
+    const { id } = req.params;
+
     try {
       const usersRepository = getRepository(User);
-      const users = await usersRepository.find();
-      return res.status(200).json(users);
+      const user = await usersRepository.findOne({
+        where: { id }
+      });
+      return res.status(200).json(user);
 
     } catch (err) {
       res.status(400).send({ error: `Error while loading data: ${err}.` });
@@ -87,5 +91,50 @@ export default class UserController {
     }
 
   };
+
+
+  // updates a user data
+  async updateUser(req: Request, res: Response) {
+    const { id } = req.params;
+    const { name, email, password } = req.body;
+
+    const usersServices = new UsersServices();
+
+    if (!name || !email || !password) {
+      return res.status(400).json({ message: 'Missing entries. Try again.' });
+    }
+
+    // email validation
+    if (!usersServices.validateEmail(email)) {
+      return res.status(400).json({ message: 'Invalid email entry' });
+    }
+
+    // password validation
+    if (!usersServices.validatePassword(password)) {
+      return res.status(400).json({
+        message: 'Password must contains letters, numbers and at least 6 characters in length'
+      });
+    }
+
+    try {
+      const usersRepository = getRepository(User);
+      const user = await usersRepository.findOne({
+        where: { id }
+      });
+
+      if (!user) return res.status(400).json({ message: 'User not found' });
+
+      const userData = { name, email, password };
+
+      usersRepository.merge(user, userData);
+      const results = await usersRepository.save(user);
+      return res.status(201).json(results);
+
+    } catch (err) {
+      res.status(500).send({ error: `Error while trying to save: ${err}.` });
+    }
+
+  };
+
 
 };
