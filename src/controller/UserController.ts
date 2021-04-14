@@ -93,7 +93,7 @@ export default class UserController {
   };
 
 
-  // updates a user data
+  // updates user data
   async updateUser(req: Request, res: Response) {
     const { id } = req.params;
     const { name, email, password } = req.body;
