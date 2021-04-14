@@ -10,15 +10,17 @@ id                  | name        | email               | password
 ------------------  | ------------| --------------------| ----------
 1                   | admin       | admin@admin.com.br  | asd123
 
+
 ***favorites_characters***
 id                  | userId        | characterId     | name        | thumbPath   | thumbExt
 ------------------  | --------------| ----------------| ------------| ------------| -------------
-59                  | 1             | 1009268         | Deadpool    | http://marvel/i/img/9/0533 | jpg
+59                  | 1             | 1009268         | Deadpool    | [http://marvel/i/img/9/0533]() | jpg
+
 
 ***favorites_comics***
 id                  | userId        | comicId     | name        | thumbPath   | thumbExt
 ------------------  | --------------| ----------------| ------------| ------------| -------------
-59                  | 1             | 22506         | Avengers    | http://prod/marvel/i/img/7/1265 | jpg
+65                  | 1             | 22506         | Avengers    | [http://prod/marvel/i/img/7/1265]() | jpg
 
 
 ### :gear: Instalações
