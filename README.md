@@ -31,6 +31,8 @@ $ git clone https://github.com/orlando-messias/marvel-challenge-backend.git
 ## Instale todas as dependências
 $ npm install
 
+## Crie localmente um banco de dados MySQL vazio com o nome marvel_db (utilize o workbench, dbeaver ou qual ferramenta preferir)
+
 ## Inicialize o projeto
 $ npm start
 
