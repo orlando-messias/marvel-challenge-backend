@@ -22,9 +22,7 @@
    },
    "scripts": {
       "build": "tsc",
-      "postinstall": "npm run build-ts",
-      "start": "npm run serve",
-      "serve": "node dist/server.js",
-      "dev": "ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts",
+      "start": "ts-node src/server.ts",
+      "dev": "ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts"
    }
 }
