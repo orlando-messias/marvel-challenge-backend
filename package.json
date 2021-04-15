@@ -21,8 +21,7 @@
       "typeorm": "0.2.29"
    },
    "scripts": {
-      "build": "tsc",
-      "start": "ts-node src/server.ts",
+      "start-production": "node ./build/server.js",
       "dev": "ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts"
    }
 }
