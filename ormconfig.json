@@ -1,10 +1,10 @@
 {
    "type": "mysql",
-   "host": "localhost",
+   "host": "bhcsonbdv3x3fgosus1l-mysql.services.clever-cloud.com",
    "port": 3306,
-   "username": "root",
-   "password": "root",
-   "database": "marvel_db",
+   "username": "uw74u9fhfzbu5plv",
+   "password": "871EAG1yM7Ord9FrB4tM",
+   "database": "bhcsonbdv3x3fgosus1l",
    "synchronize": true,
    "logging": false,
    "entities": [
