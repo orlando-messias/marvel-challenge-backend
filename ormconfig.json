@@ -1,10 +1,10 @@
 {
    "type": "mysql",
-   "host": "",
+   "host": "localhost",
    "port": 3306,
-   "username": "",
-   "password": "",
-   "database": "",
+   "username": "root",
+   "password": "root",
+   "database": "marvel_db",
    "synchronize": true,
    "logging": false,
    "entities": [
