@@ -1,14 +1,10 @@
-{
+module.exports = {
    "type": "mysql",
-   "host": "localhost",
-   "port": 3306,
-   "username": "root",
-   "password": "root",
-   "database": "marvel_db",
+   "url": process.env.DATABASE_URL,
    "synchronize": true,
    "logging": false,
    "entities": [
-      "./src/models/*.ts"
+      "dist/models/*.js"
    ],
    "migrations": [
       "src/migration/**/*.ts"
